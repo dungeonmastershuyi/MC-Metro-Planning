@@ -11,10 +11,13 @@ It then outputs a "run form" with criteria on how well the metro system did. Und
 To give more freedom for the user, the test set of passengers is also customizable. To have the case closer to real-life usages, certain parameters are also customizable.
 
 ### Detailed Description
-This repository consists of 5 main files:
+This repository consists of 6 main files:
 
-#### `determine_lines.py`
-The "solver" actually only gives the ordered set of stations in lines. In `determine_path`, the stations will connect based on greedy heuristic principles of minimizing a certain objective function: `min f = 1/w + sld`.
+#### `solver.py`
+Based on the city map, gives a set of stations in lines. Waits for feedback from `evaluation.py`, refines and gives another set of planning, until `evaluation.py` gives the stop signal.
+
+#### `determine_path.py`
+The "solver" actually only gives the ordered set of stations in lines. In `determine_path.py`, the stations will connect based on greedy heuristic principles of minimizing a certain objective function: `min f = 1/w + sld`.
 *   **w**: weight of the integer point
 *   **sld**: straight line distance between the integer point and the straight line between 2 adjacent stations
 
